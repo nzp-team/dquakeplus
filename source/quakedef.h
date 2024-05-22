@@ -336,16 +336,15 @@ void Chase_Update (void);
 typedef struct
 {
 	int pathlist [MAX_WAYPOINTS];
+	int pathlist_length;
 	int zombienum;
 } zombie_ai;
 
 typedef struct
 {
 	vec3_t origin;
-	int id;
 	float g_score, f_score;
 	int open; // Determine if the waypoint is "open" a.k.a avaible
-	int target_id [8]; // Targets array number
 	char special[64]; //special tag is required for the closed waypoints
 	int target [8]; //Each waypoint can have up to 8 targets
 	float dist [8]; // Distance to the next waypoints
@@ -354,6 +353,7 @@ typedef struct
 } waypoint_ai;
 
 extern waypoint_ai waypoints[MAX_WAYPOINTS];
+extern int n_waypoints;
 extern short closest_waypoints[MAX_EDICTS];
 
 
